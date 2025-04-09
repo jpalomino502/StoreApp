@@ -6,6 +6,8 @@
 **GitHub:** [Perfil de GitHub](https://avatars.githubusercontent.com/u/145731338?v=4)  
 **Fecha de Creación:** Abril 2025
 
+## ![Foto de Perfil GitHub](https://avatars.githubusercontent.com/u/145731338?v=4)
+
 ## Descripción
 
 Este es un proyecto desarrollado en Android Studio utilizando Jetpack Compose. El objetivo del proyecto es demostrar la implementación de las últimas herramientas y prácticas recomendadas para el desarrollo de aplicaciones móviles modernas en Android. A lo largo del proyecto, se han implementado diversas funcionalidades utilizando componentes de Jetpack Compose y arquitectura moderna.
