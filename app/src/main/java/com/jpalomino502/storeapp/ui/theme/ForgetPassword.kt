@@ -1,9 +1,11 @@
 package com.jpalomino502.storeapp
 
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.*
@@ -20,7 +22,7 @@ import androidx.compose.ui.unit.sp
 
 @Preview
 @Composable
-fun LoginScreen() {
+fun ForgetPassword() {
     Scaffold { innerPadding ->
 
         Column(
@@ -30,7 +32,7 @@ fun LoginScreen() {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
-            ) {
+        ) {
             Image(
                 painter = painterResource(id = R.drawable.logo),
                 contentDescription = "Logo",
@@ -40,9 +42,9 @@ fun LoginScreen() {
             )
 
             Text(
-                text = "Iniciar Sesión",
+                text = "¿Olvidaste tu contraseña?",
                 color = Color(0xFFFF9900),
-                // fontWeight = FontWeight.Bold,
+                //fontWeight = FontWeight.Bold,
                 // No me gusta el bold
                 fontSize = 26.sp,
             )
@@ -61,23 +63,7 @@ fun LoginScreen() {
                 },
                 shape = RoundedCornerShape(10.dp)
             )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            OutlinedTextField(
-                value = "",
-                onValueChange = {},
-                modifier = Modifier.fillMaxWidth(),
-                leadingIcon = {
-                    Icon(Icons.Default.Lock, contentDescription = null)
-                },
-                label = {
-                    Text("Contraseña")
-                },
-                shape = RoundedCornerShape(12.dp)
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(32.dp))
 
             Button(
                 onClick = {},
@@ -87,11 +73,11 @@ fun LoginScreen() {
                     .height(50.dp),
                 shape = RoundedCornerShape(12.dp),
             ) {
-                Text("Iniciar Sesión", color = Color.White)
+                Text("Enviar correo de restablecimiento", color = Color.White)
             }
             TextButton(onClick = {}) {
                 Text(
-                    "¿No tienes cuenta? Registrate.",
+                    "Iniciar Sesión",
                     color = Color(0xFFFF9900)
                 )
             }

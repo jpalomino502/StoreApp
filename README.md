@@ -35,7 +35,7 @@
 
 <ul style="font-family: 'Arial', sans-serif; font-size: 16px; color: #333; line-height: 1.6; padding-left: 20px;">
     <li>Android Studio 8.0 o superior.</li>
-    <li>SDK de Android (nivel 30 o superior).</li>
+    <li>SDK de Android (nivel 35 o superior).</li>
     <li>Conexión a internet para la instalación de dependencias.</li>
 </ul>
 
