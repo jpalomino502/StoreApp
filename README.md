@@ -1,5 +1,3 @@
-# Proyecto Android Jetpack Compose - U00173523
-
 <div style="text-align:center;">
     <h1 style="font-family: 'Arial', sans-serif; color: #333; font-size: 32px;">Proyecto Android Jetpack Compose - U00173523</h1>
     <img src="https://avatars.githubusercontent.com/u/145731338?v=4" alt="Foto de Perfil GitHub" style="border-radius: 50%; width: 150px; height: 150px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); margin-bottom: 20px;">
