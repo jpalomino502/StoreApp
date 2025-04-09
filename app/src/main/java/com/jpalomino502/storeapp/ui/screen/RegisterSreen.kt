@@ -1,4 +1,4 @@
-package com.jpalomino502.storeapp
+package com.jpalomino502.storeapp.ui.screen
 
 
 import androidx.compose.foundation.Image
@@ -14,15 +14,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.jpalomino502.storeapp.R
 
 
-@Preview
 @Composable
-fun ForgetPassword() {
+fun RegisterScreem(navController: NavController) {
     Scaffold { innerPadding ->
 
         Column(
@@ -42,7 +41,7 @@ fun ForgetPassword() {
             )
 
             Text(
-                text = "¿Olvidaste tu contraseña?",
+                text = "Registro",
                 color = Color(0xFFFF9900),
                 //fontWeight = FontWeight.Bold,
                 // No me gusta el bold
@@ -63,7 +62,51 @@ fun ForgetPassword() {
                 },
                 shape = RoundedCornerShape(10.dp)
             )
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(16.dp))
+
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                modifier = Modifier.fillMaxWidth(),
+                leadingIcon = {
+                    Icon(Icons.Default.AccountCircle, contentDescription = null)
+                },
+                label = {
+                    Text("Nombre completo")
+                },
+                shape = RoundedCornerShape(10.dp)
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                modifier = Modifier.fillMaxWidth(),
+                leadingIcon = {
+                    Icon(Icons.Default.Lock, contentDescription = null)
+                },
+                label = {
+                    Text("Contraseña")
+                },
+                shape = RoundedCornerShape(12.dp)
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                modifier = Modifier.fillMaxWidth(),
+                leadingIcon = {
+                    Icon(Icons.Default.Lock, contentDescription = null)
+                },
+                label = {
+                    Text("Confirmar contraseña")
+                },
+                shape = RoundedCornerShape(12.dp)
+            )
+
+            Spacer(modifier = Modifier.height(24.dp))
 
             Button(
                 onClick = {},
@@ -73,9 +116,11 @@ fun ForgetPassword() {
                     .height(50.dp),
                 shape = RoundedCornerShape(12.dp),
             ) {
-                Text("Enviar correo de restablecimiento", color = Color.White)
+                Text("Registrase", color = Color.White)
             }
-            TextButton(onClick = {}) {
+            TextButton(onClick = {
+                navController.navigate("login")
+            }) {
                 Text(
                     "Iniciar Sesión",
                     color = Color(0xFFFF9900)
