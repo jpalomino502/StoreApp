@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.coil3.coil.compose)
+    implementation(libs.coil.network.okhttp)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

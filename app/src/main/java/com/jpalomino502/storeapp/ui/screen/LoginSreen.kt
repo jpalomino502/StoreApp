@@ -79,7 +79,7 @@ fun LoginScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(24.dp))
 
             Button(
-                onClick = {},
+                onClick = {navController.navigate("home")},
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF9900)),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -93,6 +93,14 @@ fun LoginScreen(navController: NavController) {
             }) {
                 Text(
                     "¿No tienes cuenta? Registrate.",
+                    color = Color(0xFFFF9900)
+                )
+            }
+            TextButton(onClick = {
+                navController.navigate("forgetPassword")
+            }) {
+                Text(
+                    "¿Olvidaste tu contraseña?.",
                     color = Color(0xFFFF9900)
                 )
             }

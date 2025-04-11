@@ -73,7 +73,7 @@ fun ForgetPassword(navController: NavController) {
                 Text("Enviar correo de restablecimiento", color = Color.White)
             }
             TextButton(onClick = {
-                navController.navigate("login")
+                navController.popBackStack()
 
             }) {
                 Text(
