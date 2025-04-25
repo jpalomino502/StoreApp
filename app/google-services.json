@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "626852443997",
+    "project_id": "storeapp-unab",
+    "storage_bucket": "storeapp-unab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626852443997:android:a5fedd175585582cbddab4",
+        "android_client_info": {
+          "package_name": "com.jpalomino502.storeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBS3jLDOqbUvvG2gas4btN5W7tDANA6cxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
