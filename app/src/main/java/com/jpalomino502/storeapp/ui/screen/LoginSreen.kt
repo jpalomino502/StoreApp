@@ -24,16 +24,24 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.auth
 import com.jpalomino502.storeapp.R
+import com.jpalomino502.storeapp.ui.validation.validateEmail
+import com.jpalomino502.storeapp.ui.validation.validatePassword
 
 
 @Composable
 fun LoginScreen(navController: NavController) {
 
+    val auth = Firebase.auth
+    val activity = LocalView.current.context as Activity
     var inputEmail by remember { mutableStateOf("") }
     var inputPassword by remember { mutableStateOf("") }
-    val activity = LocalView.current.context as Activity
+    var loginError by remember { mutableStateOf("") }
+    var emailError by remember { mutableStateOf("") }
+    var passwordError by remember { mutableStateOf("") }
 
     Scaffold { innerPadding ->
 
@@ -92,31 +100,52 @@ fun LoginScreen(navController: NavController) {
             )
 
             Spacer(modifier = Modifier.height(24.dp))
+            if (loginError.isNotEmpty()) {
+                Text(
+                    loginError,
+                    color = Color.Red,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 8.dp)
+                )
+            }
 
             Button(
                 onClick = {
-                    val auth = Firebase.auth
 
-                    auth.signInWithEmailAndPassword(inputEmail, inputPassword).addOnCompleteListener(activity){
-                        task -> if (task.isSuccessful){
-                        navController.navigate("home")
-                    } else{
-                        Toast.makeText(
-                            activity.applicationContext,
-                            "Error en credenciales",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
+                    val isValidEmail: Boolean = validateEmail(inputEmail).first
+                    val isValidPassword = validatePassword(inputPassword).first
+
+                    emailError = validateEmail(inputEmail).second
+                    passwordError = validatePassword(inputPassword).second
+
+
+                    if (isValidEmail && isValidPassword) {
+                        auth.signInWithEmailAndPassword(inputEmail, inputPassword)
+                            .addOnCompleteListener(activity) { task ->
+                                if (task.isSuccessful) {
+                                    onSuccessfulLogin()
+                                } else {
+                                    loginError = when (task.exception) {
+                                        is FirebaseAuthInvalidCredentialsException -> "Correo o contraseña incorrecta"
+                                        is FirebaseAuthInvalidUserException -> "No existe una cuenta con este correo"
+                                        else -> "Error al iniciar sesión. Intenta de nuevo"
+                                    }
+                                }
+                            }
+                    } else {
+
                     }
 
-                          },
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF9900)),
-                modifier = Modifier
+                }, modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp),
-                shape = RoundedCornerShape(12.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFFFF9900),
+                    contentColor = Color.White
+                )
             ) {
-                Text("Iniciar Sesión", color = Color.White)
+                Text("Iniciar Sesión")
             }
             TextButton(onClick = {
                 navController.navigate("register")
@@ -136,4 +165,8 @@ fun LoginScreen(navController: NavController) {
             }
         }
     }
+}
+
+fun onSuccessfulLogin() {
+    TODO("Not yet implemented")
 }

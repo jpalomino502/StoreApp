@@ -10,7 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.jpalomino502.storeapp.ui.screen.ForgetPassword
 import com.jpalomino502.storeapp.ui.screen.HomeSreen
 import com.jpalomino502.storeapp.ui.screen.LoginScreen
-import com.jpalomino502.storeapp.ui.screen.RegisterScreem
+import com.jpalomino502.storeapp.ui.screen.RegisterScreen
 
 @Composable
 fun NavigationApp(){
@@ -26,7 +26,7 @@ fun NavigationApp(){
             LoginScreen(myNavController)
         }
         composable("register"){
-            RegisterScreem(myNavController)
+            RegisterScreen(myNavController)
         }
         composable("forgetPassword"){
             ForgetPassword(myNavController)
