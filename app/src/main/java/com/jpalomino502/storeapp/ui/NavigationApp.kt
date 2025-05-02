@@ -32,7 +32,7 @@ fun NavigationApp(){
             ForgetPassword(myNavController)
         }
         composable("home"){
-            HomeSreen()
+            HomeSreen(myNavController)
         }
     }
 }

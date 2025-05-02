@@ -6,7 +6,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
@@ -37,7 +36,7 @@ import com.jpalomino502.storeapp.ui.validation.validatePassword
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegisterScreem(navController: NavController, onSuccessfulRegister:()->Unit = {}) {
+fun RegisterScreen(navController: NavController, onSuccessfulRegister:()->Unit = {}) {
 
     val auth = Firebase.auth
     val activity = LocalView.current.context as Activity
@@ -113,7 +112,8 @@ fun RegisterScreem(navController: NavController, onSuccessfulRegister:()->Unit =
                             color = Color.Red
                         )
                     }
-                }
+                },
+                shape = RoundedCornerShape(12.dp)
             )
 
             Spacer(modifier = Modifier.size(16.dp))
@@ -135,7 +135,8 @@ fun RegisterScreem(navController: NavController, onSuccessfulRegister:()->Unit =
                             color = Color.Red
                         )
                     }
-                }
+                },
+                shape = RoundedCornerShape(12.dp)
             )
 
             Spacer(modifier = Modifier.size(16.dp))
@@ -157,7 +158,8 @@ fun RegisterScreem(navController: NavController, onSuccessfulRegister:()->Unit =
                             color = Color.Red
                         )
                     }
-                }
+                },
+                shape = RoundedCornerShape(12.dp)
             )
 
             Spacer(modifier = Modifier.size(16.dp))
@@ -179,7 +181,8 @@ fun RegisterScreem(navController: NavController, onSuccessfulRegister:()->Unit =
                             color = Color.Red
                         )
                     }
-                }
+                },
+                shape = RoundedCornerShape(12.dp)
             )
 
             if (registerError.isNotEmpty()) {
@@ -209,7 +212,7 @@ fun RegisterScreem(navController: NavController, onSuccessfulRegister:()->Unit =
                                 if (task.isSuccessful) {
                                     onSuccessfulRegister()
                                 } else {
-                                    registerError = when (task.isSuccessful) {
+                                    registerError = when (task.exception) {
                                         is FirebaseAuthInvalidCredentialsException -> "Correo invalido"
                                         is FirebaseAuthUserCollisionException -> "Correo ya registrado"
                                         else -> "Error al registrarse"

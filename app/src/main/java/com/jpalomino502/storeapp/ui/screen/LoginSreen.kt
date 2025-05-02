@@ -1,7 +1,6 @@
 package com.jpalomino502.storeapp.ui.screen
 
 import android.app.Activity
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -23,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.auth
@@ -124,7 +122,7 @@ fun LoginScreen(navController: NavController) {
                         auth.signInWithEmailAndPassword(inputEmail, inputPassword)
                             .addOnCompleteListener(activity) { task ->
                                 if (task.isSuccessful) {
-                                    onSuccessfulLogin()
+                                    onSuccessfulLogin(navController)
                                 } else {
                                     loginError = when (task.exception) {
                                         is FirebaseAuthInvalidCredentialsException -> "Correo o contraseña incorrecta"
@@ -167,6 +165,8 @@ fun LoginScreen(navController: NavController) {
     }
 }
 
-fun onSuccessfulLogin() {
-    TODO("Not yet implemented")
+fun onSuccessfulLogin(navController: NavController) {
+    navController.navigate("home") {
+        popUpTo("login") { inclusive = true }
+    }
 }
